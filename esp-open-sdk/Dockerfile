@@ -3,7 +3,7 @@ FROM ubuntu:trusty
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get -yqq update && \
     apt-get -yqq install make unrar-free autoconf automake libtool gcc g++ gperf \
-                         flex bison texinfo gawk ncurses-dev libexpat-dev python-dev python python-serial \
+                         flex bison texinfo gawk ncurses-dev libexpat-dev python-dev python python-pip python-serial \
                          sed git-core subversion unzip help2man wget bzip2 gawk vim less && \
     apt-get clean && \
     useradd  --create-home --home-dir /builder --shell /bin/bash builder && \
@@ -16,3 +16,4 @@ RUN  git clone --recursive https://github.com/pfalcon/esp-open-sdk.git && \
      make STANDALONE=y
 
 CMD ["/bin/bash"]
+
